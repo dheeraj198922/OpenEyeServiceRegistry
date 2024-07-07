@@ -1,0 +1,16 @@
+version: '3.8'
+services:
+  openeye_service_registry:
+    container_name: openeye_service_registry
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "8761:8761"
+    networks:
+      - springboot-net
+    restart: on-failure
+networks:
+  springboot-net:
+    driver: bridge
+    external: true   
